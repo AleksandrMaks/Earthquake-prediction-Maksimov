@@ -11,7 +11,7 @@ import pandas as pd
 #data_table.enable_dataframe_formatter()
 
 # Read CSV file with space delimiter
-df = pd.read_csv('C:\\Users\\User\\Desktop\\Python\\term 2\\Earthquake_Data.csv', delimiter=r'\s+')
+df = pd.read_csv('C:\\Users\\User\\Desktop\\Python\\Earthquake-prediction-Maksimov\\Earthquake_Data.csv', delimiter=r'\s+')
 
 # Print the first 5 rows of the data frame
 print(df)
@@ -204,7 +204,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 # Read CSV file with space delimiter
-df = pd.read_csv('C:\\Users\\User\\Desktop\\Python\\term 2\\Earthquake_Data.csv', delimiter=r'\s+')
+df = pd.read_csv('C:\\Users\\User\\Desktop\\Python\\Earthquake-prediction-Maksimov\\Earthquake_Data.csv', delimiter=r'\s+')
 
 new_column_names = ["Date(YYYY/MM/DD)",  "Time(UTC)", "Latitude(deg)", "Longitude(deg)", "Depth(km)", "Magnitude", 
                     "Magnitude_Category", "No_of_Stations", "Gap", "Close", "RMS", "SRC", "EventID"]

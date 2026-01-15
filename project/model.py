@@ -8,7 +8,7 @@ import torchmetrics
 import wandb
 from sklearn.metrics import confusion_matrix
 from transformers import AutoModelForSequenceClassification
-
+import logging
 
 class ColaModel(pl.LightningModule):
     def __init__(self, model_name="google/bert_uncased_L-2_H-128_A-2", lr=3e-5):
@@ -88,23 +88,7 @@ class ColaModel(pl.LightningModule):
             }
         )
 
-        # 2. Confusion Matrix plotting using scikit-learn method
-        # wandb.log({"cm": wandb.sklearn.plot_confusion_matrix(labels.numpy(), preds)})
-
-        # 3. Confusion Matric plotting using Seaborn
-        # data = confusion_matrix(labels.numpy(), preds.numpy())
-        # df_cm = pd.DataFrame(data, columns=np.unique(labels), index=np.unique(labels))
-        # df_cm.index.name = "Actual"
-        # df_cm.columns.name = "Predicted"
-        # plt.figure(figsize=(7, 4))
-        # plot = sns.heatmap(
-        #     df_cm, cmap="Blues", annot=True, annot_kws={"size": 16}
-        # )  # font size
-        # self.logger.experiment.log({"Confusion Matrix": wandb.Image(plot)})
-
-        # self.logger.experiment.log(
-        #     {"roc": wandb.plot.roc_curve(labels.numpy(), logits.numpy())}
-        # )
+     
 
     def configure_optimizers(self):
         return torch.optim.Adam(self.parameters(), lr=self.hparams["lr"])

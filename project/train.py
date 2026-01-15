@@ -1,13 +1,12 @@
-import torch
-import wandb
 import pandas as pd
 import pytorch_lightning as pl
+import torch
+import wandb
+from data import DataModule
+from model import ColaModel
 from pytorch_lightning.callbacks import ModelCheckpoint
 from pytorch_lightning.callbacks.early_stopping import EarlyStopping
 from pytorch_lightning.loggers import WandbLogger
-
-from data import DataModule
-from model import ColaModel
 
 
 class SamplesVisualisationLogger(pl.Callback):
@@ -56,7 +55,11 @@ def main():
     trainer = pl.Trainer(
         max_epochs=1,
         logger=wandb_logger,
-        callbacks=[checkpoint_callback, SamplesVisualisationLogger(cola_data), early_stopping_callback],
+        callbacks=[
+            checkpoint_callback,
+            SamplesVisualisationLogger(cola_data),
+            early_stopping_callback,
+        ],
         log_every_n_steps=10,
         deterministic=True,
         # limit_train_batches=0.25,

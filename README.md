@@ -1,12 +1,11 @@
 -Problem Statement
 We need to predict earthquakes in order to warn people and try to save their lives, accommodations and properties
 
-
 -Input and Output Data Format
 Input format:
-Date(YYYY/MM/DD)    Time           Latitude        Longitude           Depth       Mag      Magt     Nst    Gap     Clo     RMS    SRC     EventID
+Date(YYYY/MM/DD) Time Latitude Longitude Depth Mag Magt Nst Gap Clo RMS SRC EventID
 Output format:
-The points on the map with a predicted earthquakes 
+The points on the map with a predicted earthquakes
 
 -Metrics
 I think it would be a regression task, that is why metrics will be:
@@ -19,8 +18,7 @@ Root Mean Squared Error (RMSE): The square root of the MSE, providing an error m
 
 -Data
 http://socr.ucla.edu/docs/resources/SOCR_Data/SOCR_Data_Earthquakes_Over3.html - an example.
-I need to take somewhere more data, maybe from European or Russian agencies 
-
+I need to take somewhere more data, maybe from European or Russian agencies
 
 -Modeling
 
@@ -29,12 +27,10 @@ We can use here next models:
 RNN / LSTM
 
 Main model
-I think that we can use RNN or LSTM for predicting the latitude and longitude of our earthquakes and use the results for implementing and searching point on the map  
-
+I think that we can use RNN or LSTM for predicting the latitude and longitude of our earthquakes and use the results for implementing and searching point on the map
 
 -Deployment
-Deployment could be like a service with an input HTML-page for pulling in the information or it could take as an input an csv-files.  
-
+Deployment could be like a service with an input HTML-page for pulling in the information or it could take as an input an csv-files.
 
 -Setup
 Poetry is a tool for dependency management and packaging in Python. It allows you to declare the libraries your project depends on and it will manage (install/update) them for you. Poetry offers a lockfile to ensure repeatable installs, and can build your project for distribution.Create a Poetry environment using pyproject.toml
@@ -64,15 +60,16 @@ Evaluate: Assess the model's performance on the validation/test data.
 Generate Results: Use the trained model to make predictions or generate sequences.
 
 -Production preparation
+
 1. Train the Model
-Fit the model: Train the RNN on our dataset using the fit function, specifying the number of epochs and batch size.
-Monitor training: Track the model’s performance through training metrics and validation loss.
+   Fit the model: Train the RNN on our dataset using the fit function, specifying the number of epochs and batch size.
+   Monitor training: Track the model’s performance through training metrics and validation loss.
 2. Evaluate the Model
-Test the model: After training, evaluating the model on a separate test dataset to gauge its performance.
-Analyze results: Use metrics to determine if the model meets our performance criteria.
+   Test the model: After training, evaluating the model on a separate test dataset to gauge its performance.
+   Analyze results: Use metrics to determine if the model meets our performance criteria.
 3. Make Predictions
-Use the model for inference: Feed new sequences into the trained model to make predictions or generate outputs.
-Interpret the results: Analyze the model’s predictions in the context of earthquakes.
+   Use the model for inference: Feed new sequences into the trained model to make predictions or generate outputs.
+   Interpret the results: Analyze the model’s predictions in the context of earthquakes.
 
 -Infer
 Inference involves using a trained model to make predictions on unlabeled examples, and it can be done statically or dynamically. Static inference generates predictions in advance and caches them, making it suitable for scenarios where prediction speed is critical but limiting its ability to handle uncommon inputs.

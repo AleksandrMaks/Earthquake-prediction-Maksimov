@@ -1,6 +1,6 @@
 import torch
-from model import ColaModel
 from data import DataModule
+from model import ColaModel
 
 
 class ColaPredictor:

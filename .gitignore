@@ -5,6 +5,8 @@ build/
 dist/
 wheels/
 *.egg-info
+Earthquake_data_processed.xlsx
+Earthquake_Data.csv
 
 # Virtual environments
 .venv
